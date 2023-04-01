@@ -10,7 +10,8 @@ defmodule PurerlAlias.MixProject do
       build_embedded: Mix.env() == :prod,
       deps: deps(),
       compilers: [:purerl | Mix.compilers()],
-      erlc_paths: ["output"]
+      erlc_paths: ["output"],
+      package: package()
     ]
   end
 
@@ -29,6 +30,17 @@ defmodule PurerlAlias.MixProject do
       {:purerlex, "~> 0.4.2"},
       {:jsx, "~> 3.1"},
       {:gproc, "~> 0.9.0"}
+    ]
+  end
+
+  defp package() do
+    [
+      files: ["output", "lib", "mix.exs", "README.md", "LICENSE", "src"],
+      description: "A library for aliasing PureScript (`purerl`) modules in Elixir",
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/GoNZooo/purerl_alias"
+      }
     ]
   end
 end
