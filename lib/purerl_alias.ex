@@ -1,4 +1,4 @@
-defmodule PurerlAlias.Alias do
+defmodule PurerlAlias do
   @moduledoc """
   Allows one to alias PureScript module names in Elixir and thus use them with nicer names.
   """
@@ -12,7 +12,7 @@ defmodule PurerlAlias.Alias do
   ## Example
 
       defmodule MyModule do
-        require PurerlAlias.Alias, as: PSAlias
+        require PurerlAlias, as: PSAlias
 
         PSAlias.alias(MyPureScriptCode.ModuleName)
         PSAlias.alias(MyPureScriptCode.ModuleName, as: MyAlias)
