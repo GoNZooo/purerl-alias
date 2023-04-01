@@ -12,12 +12,12 @@ defmodule PurerlAlias do
   ## Example
 
       defmodule MyModule do
-        require PurerlAlias, as: PSAlias
+        require PurerlAlias # One can also add `as: PSAlias` or the like here
 
-        PSAlias.alias(MyPureScriptCode.ModuleName)
-        PSAlias.alias(MyPureScriptCode.ModuleName, as: MyAlias)
+        PurerlAlias.alias(MyPureScriptCode.ModuleName)
+        PurerlAlias.alias(MyPureScriptCode.ModuleName, as: MyAlias)
 
-        def my_function do
+        def my_function() do
           ModuleName.myEffectfulFunction().()
           MyAlias.myOtherFunction()
         end

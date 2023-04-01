@@ -11,7 +11,8 @@ defmodule PurerlAlias.MixProject do
       deps: deps(),
       compilers: [:purerl | Mix.compilers()],
       erlc_paths: ["output"],
-      package: package()
+      package: package(),
+      docs: docs()
     ]
   end
 
@@ -40,6 +41,12 @@ defmodule PurerlAlias.MixProject do
       links: %{
         "GitHub" => "https://github.com/GoNZooo/purerl_alias"
       }
+    ]
+  end
+
+  defp docs() do
+    [
+      main: "PurerlAlias"
     ]
   end
 end
