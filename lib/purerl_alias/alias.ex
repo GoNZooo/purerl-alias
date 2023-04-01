@@ -5,6 +5,24 @@ defmodule PurerlAlias.Alias do
 
   @utilities :purerlAlias_moduleUtilities@ps
 
+  @doc """
+  Aliases a PureScript module in Elixir. Does automatic translation of the PureScript module name
+  to the corresponding Erlang module name.
+
+  ## Example
+
+      defmodule MyModule do
+        require PurerlAlias.Alias, as: PSAlias
+
+        PSAlias.alias(MyPureScriptCode.ModuleName)
+        PSAlias.alias(MyPureScriptCode.ModuleName, as: MyAlias)
+
+        def my_function do
+          ModuleName.myEffectfulFunction().()
+          MyAlias.myOtherFunction()
+        end
+      end
+  """
   defmacro alias(purescript_module_name, options \\ []) do
     aliased_name =
       case purescript_module_name do
