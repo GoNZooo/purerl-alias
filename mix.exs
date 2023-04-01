@@ -4,7 +4,7 @@ defmodule PurerlAlias.MixProject do
   def project do
     [
       app: :purerl_alias,
-      version: "0.1.1",
+      version: "0.1.2",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       build_embedded: Mix.env() == :prod,
@@ -34,7 +34,7 @@ defmodule PurerlAlias.MixProject do
 
   defp package() do
     [
-      files: ["lib", "mix.exs", "README.md", "LICENSE", "src"],
+      files: ["lib", "mix.exs", "README.md", "LICENSE", "src", "spago.dhall", "packages.dhall"],
       description: "A library for aliasing PureScript (`purerl`) modules in Elixir",
       licenses: ["MIT"],
       links: %{
