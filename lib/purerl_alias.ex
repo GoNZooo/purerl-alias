@@ -3,6 +3,8 @@ defmodule PurerlAlias do
   Allows one to alias PureScript module names in Elixir and thus use them with nicer names.
   """
 
+  alias PurerlAlias.Utilities
+
   @doc """
   Aliases a PureScript module in Elixir. Does automatic translation of the PureScript module name
   to the corresponding Erlang module name.
@@ -52,7 +54,7 @@ defmodule PurerlAlias do
     name
     |> strip_prefix("Elixir.")
     |> String.split(".")
-    |> Enum.map(&lower_case_first_letter/1)
+    |> Enum.map(&Utilities.lowercase_first_letter/1)
     |> Enum.join("_")
     |> then(fn n -> n <> "@ps" end)
     |> String.to_atom()
@@ -60,11 +62,5 @@ defmodule PurerlAlias do
 
   defp strip_prefix(string, prefix) do
     String.replace_prefix(string, prefix, "")
-  end
-
-  defp lower_case_first_letter(<<>>), do: <<>>
-
-  defp lower_case_first_letter(<<first, rest::binary>>) do
-    <<String.downcase(first), rest::binary>>
   end
 end
